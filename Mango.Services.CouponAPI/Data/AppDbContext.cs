@@ -1,6 +1,13 @@
-﻿namespace Mango.Services.CouponAPI.Data
+﻿using Mango.Services.CouponAPI.Models;
+using Microsoft.EntityFrameworkCore;
+
+namespace Mango.Services.CouponAPI.Data;
+
+public class AppDbContext : DbContext
 {
-    public class AppDbContext
+    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     {
     }
+
+    public DbSet<Coupon> Coupons { get; set; }
 }
